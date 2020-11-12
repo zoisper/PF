@@ -62,6 +62,16 @@ myreverse :: [a] -> [a]
 myreverse [] = []
 myreverse (x:xs) = (myreverse xs) ++ [x]
 
+--ou (versão otimizada)
+
+myreverse2 :: [a] -> [a]
+myreverse2 x = reverse_aux [] x
+
+
+reverse_aux :: [a] -> [a] -> [a]
+reverse_aux x [] = x
+reverse_aux x (y:ys) = reverse_aux (y:x) ys
+
 
 {- 6. Apresente uma definição recursiva da função (pré-definida) take :: Int -> [a] -> [a] que
 dado um inteiro n e uma lista l calcula a lista com os (no máximo) n primeiros elementos de
